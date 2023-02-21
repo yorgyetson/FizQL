@@ -1,0 +1,25 @@
+fragment UserData on users {
+  id
+  username
+  email
+  password
+  active
+}
+
+query GetUserByPK($id: uuid!) {
+  users_by_pk(id: $id) {
+    ...UserData
+  }
+}
+
+query GetUserByEmail($email: String!) {
+  users(where: { email: { _eq: $email } }) {
+    ...UserData
+  }
+}
+
+query GetUserByUsername($username: String!) {
+  users(where: { username: { _eq: $username } }) {
+    ...UserData
+  }
+}

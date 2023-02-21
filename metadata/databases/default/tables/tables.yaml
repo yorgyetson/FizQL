@@ -1,0 +1,5 @@
+- "!include public_melpeordy_answers.yaml"
+- "!include public_melpeordy_categories.yaml"
+- "!include public_melpeordy_game_players.yaml"
+- "!include public_melpeordy_games.yaml"
+- "!include public_users.yaml"

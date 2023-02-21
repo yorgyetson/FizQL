@@ -1,0 +1,10 @@
+table:
+  name: game_players
+  schema: public
+object_relationships:
+  - name: game
+    using:
+      foreign_key_constraint_on: gameId
+  - name: user
+    using:
+      foreign_key_constraint_on: playerId

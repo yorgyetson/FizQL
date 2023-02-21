@@ -1,0 +1,19 @@
+overwrite: true
+schema: 'http://localhost:8080/v1/graphql'
+headers:
+        'x-hasura-admin-secret': myadminsecretkey
+documents:
+  - 'src/**/*.gql'
+generates:
+  src/graphql/graphql.ts:
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-graphql-request'
+    config:
+      asyncQuery: true
+      clientPath: 'src/graphql/apolloClient'
+      dedupeFragments: true
+  src/graphql/graphql.schema.json:
+    plugins:
+      - 'introspection'

@@ -1,0 +1,33 @@
+table:
+  name: users
+  schema: public
+array_relationships:
+  - name: games
+    using:
+      foreign_key_constraint_on:
+        column: playerId
+        table:
+          name: melpeordy_game_players
+          schema: public
+select_permissions:
+  - role: user
+    permission:
+      columns:
+        - active
+        - email
+        - id
+        - username
+      filter:
+        id:
+          _eq: X-Hasura-User-Id
+update_permissions:
+  - role: user
+    permission:
+      columns:
+        - email
+        - password
+        - username
+      filter:
+        id:
+          _eq: X-Hasura-User-Id
+      check: {}
